@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://mwokgxnuxkqznngsbqpl.supabase.co; base-uri 'none'; form-action 'none'"
+    />
+    <title>PennyFood</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>PennyFood</h1>
+
+      <p id="status" role="status">Laddar…</p>
+
+      <form id="login" hidden>
+        <p>Logga in med ditt PennyFood-konto.</p>
+        <label for="email">E-post</label>
+        <input id="email" type="email" autocomplete="username" required />
+        <label for="password">Lösenord</label>
+        <input id="password" type="password" autocomplete="current-password" required />
+        <button type="submit" class="primary">Logga in</button>
+      </form>
+
+      <section id="consent" hidden>
+        <h2><span id="client-name"></span> vill komma åt PennyFood</h2>
+        <p>
+          Inloggad som <strong id="user-email"></strong>. Om du godkänner kan
+          <span id="client-name-2"></span> läsa och ändra skafferiet och inköpslistan i ditt
+          hushåll.
+        </p>
+        <p>Du skickas tillbaka till <strong id="redirect-host"></strong>.</p>
+        <div class="actions">
+          <button id="approve" type="button" class="primary">Godkänn</button>
+          <button id="deny" type="button">Neka</button>
+        </div>
+      </section>
+
+      <section id="grants" hidden>
+        <h2>Anslutna appar</h2>
+        <p id="grants-empty" hidden>Inga appar är anslutna till ditt konto.</p>
+        <ul id="grants-list"></ul>
+      </section>
+
+      <button id="sign-out" type="button" class="link" hidden>Logga ut</button>
+    </main>
+    <script src="supabase.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
